@@ -1,0 +1,372 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Color palette */
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  /* Slide colors for Hero */
+  --color-slide-quantum-primary: var(--slide-quantum-primary);
+  --color-slide-quantum-bg: var(--slide-quantum-bg);
+  --color-slide-agi-primary: var(--slide-agi-primary);
+  --color-slide-agi-bg: var(--slide-agi-bg);
+  --color-slide-compute-primary: var(--slide-compute-primary);
+  --color-slide-compute-bg: var(--slide-compute-bg);
+
+  /* Status colors */
+  --color-status-live: var(--status-live);
+  --color-status-upcoming: var(--status-upcoming);
+  --color-status-ended: var(--status-ended);
+
+  /* Typography */
+  --font-sans: "Rajdhani", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Rajdhani", sans-serif;
+
+  /* Animation timing */
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.5s ease-out;
+
+  /* Tailark animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-in;
+  --animate-scale-in: scale-in 0.2s ease-out;
+  --animate-scale-out: scale-out 0.2s ease-in;
+
+  /* Additional Tailark colors */
+  --color-illustration: var(--card);
+  --color-border-illustration: var(--border);
+  --color-ring: var(--primary);
+
+  /* Border radius */
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+  }
+}
+
+@keyframes scale-out {
+  from {
+    opacity: 1;
+    transform: rotateX(0deg) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: rotateX(-10deg) scale(0.95);
+  }
+}
+
+:root {
+  /* Base Colors - Light Mode */
+  --background: #e8e5d5; /* Cream */
+  --foreground: #1a1c1e; /* Dark Charcoal */
+
+  /* Brand Colors - Darker green for light mode contrast on cream */
+  --primary: #16a34a; /* Green 600 - better contrast on cream background */
+  --primary-hover: #15803d;
+  --primary-foreground: #ffffff;
+  --secondary: #22d3ee; /* AGI Blue */
+  --secondary-hover: #3b82f6;
+  --secondary-foreground: #000000;
+  --accent: #c084fc; /* Compute Purple */
+  --accent-hover: #d946ef;
+  --accent-foreground: #000000;
+
+  /* UI Colors */
+  --muted: #d4d1c1;
+  --muted-foreground: #374151; /* Gray 700 - better contrast on cream */
+  --card: #f0ede0;
+  --card-foreground: #1a1c1e;
+  --border: #d4d1c1;
+  --input: #d4d1c1;
+  --popover: #ffffff;
+  --popover-foreground: #1a1c1e;
+
+  /* Slide Theme Colors - Quantum (Green) */
+  --slide-quantum-primary: #7ff252;
+  --slide-quantum-secondary: #6fd638;
+  --slide-quantum-bg: #020602;
+  --slide-quantum-accent: rgba(127, 242, 82, 0.15);
+
+  /* Slide Theme Colors - AGI (Blue) */
+  --slide-agi-primary: #22d3ee;
+  --slide-agi-secondary: #3b82f6;
+  --slide-agi-bg: #040b14;
+  --slide-agi-accent: rgba(34, 211, 238, 0.15);
+
+  /* Slide Theme Colors - Compute (Purple) */
+  --slide-compute-primary: #c084fc;
+  --slide-compute-secondary: #d946ef;
+  --slide-compute-bg: #0f0318;
+  --slide-compute-accent: rgba(192, 132, 252, 0.15);
+
+  /* Status */
+  --status-live: #7ff252;
+  --status-upcoming: #ffa500;
+  --status-ended: #9ca3af;
+
+  /* Shadows */
+  --shadow-primary: rgba(0, 0, 0, 1);
+  --shadow-secondary: rgba(0, 0, 0, 0.5);
+}
+
+.dark {
+  /* Base Colors - Dark Mode */
+  --background: #020602; /* Deep Dark Green/Black */
+  --foreground: #ffffff; /* White */
+
+  /* Brand Colors - Adjusted for Dark Mode if needed, but keeping vibrant */
+  --primary: #7ff252;
+  --primary-hover: #6fd638;
+  --primary-foreground: #000000;
+  --secondary: #22d3ee;
+  --secondary-hover: #3b82f6;
+  --secondary-foreground: #000000;
+  --accent: #c084fc;
+  --accent-hover: #d946ef;
+  --accent-foreground: #000000;
+
+  /* UI Colors */
+  --muted: #1a1c1e;
+  --muted-foreground: #9ca3af;
+  --card: #0a0f0a;
+  --card-foreground: #ffffff;
+  --border: #1f2937;
+  --input: #1a1c1e;
+  --popover: #0a0f0a;
+  --popover-foreground: #ffffff;
+
+  /* Shadows for dark mode */
+  --shadow-primary: rgba(127, 242, 82, 0.3);
+  --shadow-secondary: rgba(127, 242, 82, 0.15);
+}
+
+/* Base Styles */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.display-font {
+  font-family: var(--font-display);
+}
+
+/* Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-panel {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* Animation utility classes */
+.animate-fade-in {
+  animation: var(--animate-fade-in);
+}
+
+.animate-slide-up {
+  animation: var(--animate-slide-up);
+}
+
+/* 3D Icon Effects */
+.icon-3d {
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3))
+          drop-shadow(0 6px 6px rgba(0, 0, 0, 0.2));
+  transform-style: preserve-3d;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.icon-3d-glow {
+  position: relative;
+  filter: drop-shadow(0 0 20px currentColor)
+          drop-shadow(0 0 40px currentColor)
+          drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
+}
+
+@keyframes float-3d {
+  0%, 100% {
+    transform: translateY(0px) rotateX(-5deg) rotateY(5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+  }
+}
+
+@keyframes rotate-3d {
+  0% {
+    transform: rotateY(0deg) rotateX(-10deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(-10deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px currentColor)
+            drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 40px currentColor)
+            drop-shadow(0 0 60px currentColor)
+            drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
+  }
+}
+
+.animate-float-3d {
+  animation: float-3d 3s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+.animate-rotate-3d {
+  animation: rotate-3d 20s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Perspective containers */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+/* Diagonal shimmer overlay animations */
+@keyframes shimmer-diagonal {
+  0% {
+    background-position: 200% 200%;
+  }
+  100% {
+    background-position: -200% -200%;
+  }
+}
+
+@keyframes shimmer-diagonal-reverse {
+  0% {
+    background-position: -200% -200%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+.animate-shimmer-diagonal {
+  animation: shimmer-diagonal 8s linear infinite;
+}
+
+.animate-shimmer-diagonal-reverse {
+  animation: shimmer-diagonal-reverse 12s linear infinite;
+}
