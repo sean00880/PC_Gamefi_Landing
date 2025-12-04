@@ -133,24 +133,24 @@ export default function Carousel3D() {
 
             <div className="container relative mx-auto px-6">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-purple-400 to-cyan-400 bg-clip-text text-transparent px-2">
+                <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4">
+                    <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary via-purple-400 to-cyan-400 bg-clip-text text-transparent">
                         Explore the Gaming Universe
                     </h2>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                    <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
                         Discover cutting-edge GameFi projects that blend immersive gameplay with blockchain innovation
                     </p>
                 </div>
 
                 {/* 3D Carousel Container */}
-                <div className="relative h-[700px] w-full max-w-7xl mx-auto" style={{ perspective: '2000px' }}>
-                    {/* Previous Card - Left */}
+                <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] w-full max-w-7xl mx-auto" style={{ perspective: '2000px' }}>
+                    {/* Previous Card - Left (hidden on mobile) */}
                     <motion.div
                         key={`prev-${visible.prev.id}`}
                         initial={{ opacity: 0, x: -200, rotateY: -45, scale: 0.7 }}
                         animate={{ opacity: 0.4, x: -100, rotateY: -35, scale: 0.75, z: -300 }}
                         transition={{ duration: 0.6, ease: 'easeOut' }}
-                        className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[600px] pointer-events-none"
+                        className="hidden lg:block absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[600px] pointer-events-none"
                         style={{ transformStyle: 'preserve-3d' }}
                     >
                         <div className="relative w-full h-full rounded-3xl overflow-hidden border border-border/20 backdrop-blur-sm">
@@ -170,7 +170,7 @@ export default function Carousel3D() {
                         initial={{ opacity: 0, scale: 0.8, rotateY: 0 }}
                         animate={{ opacity: 1, scale: 1, rotateY: 0, z: 0 }}
                         transition={{ duration: 0.6, ease: 'easeOut' }}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[700px]"
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-[400px] md:w-[500px] lg:w-[600px] h-[350px] sm:h-[450px] md:h-[550px] lg:h-[700px]"
                         style={{ transformStyle: 'preserve-3d' }}
                     >
                         <div className="relative w-full h-full group">
@@ -219,13 +219,13 @@ export default function Carousel3D() {
                         </div>
                     </motion.div>
 
-                    {/* Next Card - Right */}
+                    {/* Next Card - Right (hidden on mobile) */}
                     <motion.div
                         key={`next-${visible.next.id}`}
                         initial={{ opacity: 0, x: 200, rotateY: 45, scale: 0.7 }}
                         animate={{ opacity: 0.4, x: 100, rotateY: 35, scale: 0.75, z: -300 }}
                         transition={{ duration: 0.6, ease: 'easeOut' }}
-                        className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[600px] pointer-events-none"
+                        className="hidden lg:block absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[600px] pointer-events-none"
                         style={{ transformStyle: 'preserve-3d' }}
                     >
                         <div className="relative w-full h-full rounded-3xl overflow-hidden border border-border/20 backdrop-blur-sm">
@@ -242,40 +242,40 @@ export default function Carousel3D() {
                     {/* Navigation Buttons */}
                     <button
                         onClick={handlePrevious}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex h-14 w-14 items-center justify-center rounded-full border-2 border-primary/50 bg-background/80 backdrop-blur-xl text-primary shadow-lg transition-all hover:scale-110 hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center rounded-full border-2 border-primary/50 bg-background/80 backdrop-blur-xl text-primary shadow-lg transition-all hover:scale-110 hover:border-primary hover:bg-primary hover:text-primary-foreground"
                         aria-label="Previous slide"
                     >
-                        <ChevronLeft className="h-7 w-7" />
+                        <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />
                     </button>
 
                     <button
                         onClick={handleNext}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex h-14 w-14 items-center justify-center rounded-full border-2 border-primary/50 bg-background/80 backdrop-blur-xl text-primary shadow-lg transition-all hover:scale-110 hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 items-center justify-center rounded-full border-2 border-primary/50 bg-background/80 backdrop-blur-xl text-primary shadow-lg transition-all hover:scale-110 hover:border-primary hover:bg-primary hover:text-primary-foreground"
                         aria-label="Next slide"
                     >
-                        <ChevronRight className="h-7 w-7" />
+                        <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7" />
                     </button>
 
                     {/* Play/Pause Button */}
                     <button
                         onClick={toggleAutoPlay}
-                        className="absolute bottom-4 right-4 z-20 flex h-12 w-12 items-center justify-center rounded-full border-2 border-border/50 bg-background/80 backdrop-blur-xl text-foreground shadow-lg transition-all hover:scale-110 hover:border-primary hover:bg-card"
+                        className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 z-20 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 border-border/50 bg-background/80 backdrop-blur-xl text-foreground shadow-lg transition-all hover:scale-110 hover:border-primary hover:bg-card"
                         aria-label={isPaused ? 'Play carousel' : 'Pause carousel'}
                     >
-                        {isPaused ? <Play className="h-5 w-5" /> : <Pause className="h-5 w-5" />}
+                        {isPaused ? <Play className="h-4 w-4 sm:h-5 sm:w-5" /> : <Pause className="h-4 w-4 sm:h-5 sm:w-5" />}
                     </button>
                 </div>
 
                 {/* Dot Indicators */}
-                <div className="mt-12 flex justify-center gap-3">
+                <div className="mt-6 sm:mt-8 md:mt-12 flex justify-center gap-2 sm:gap-3">
                     {items.map((item, index) => (
                         <button
                             key={item.id}
                             onClick={() => handleDotClick(index)}
-                            className={`h-3 rounded-full transition-all ${
+                            className={`h-2 sm:h-3 rounded-full transition-all ${
                                 index === currentIndex
-                                    ? 'w-16 bg-primary shadow-lg shadow-primary/50'
-                                    : 'w-3 bg-border hover:bg-primary/50'
+                                    ? 'w-8 sm:w-12 md:w-16 bg-primary shadow-lg shadow-primary/50'
+                                    : 'w-2 sm:w-3 bg-border hover:bg-primary/50'
                             }`}
                             aria-label={`Go to slide ${index + 1}`}
                         />
@@ -283,10 +283,10 @@ export default function Carousel3D() {
                 </div>
 
                 {/* Counter */}
-                <div className="mt-6 text-center text-sm text-muted-foreground">
-                    <span className="font-semibold text-foreground text-lg">{currentIndex + 1}</span>
+                <div className="mt-4 sm:mt-6 text-center text-xs sm:text-sm text-muted-foreground">
+                    <span className="font-semibold text-foreground text-base sm:text-lg">{currentIndex + 1}</span>
                     <span className="mx-2">/</span>
-                    <span className="text-lg">{items.length}</span>
+                    <span className="text-base sm:text-lg">{items.length}</span>
                 </div>
             </div>
         </section>
