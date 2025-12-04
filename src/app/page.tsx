@@ -41,7 +41,7 @@ export default function Home() {
             <div className="p-6 bg-card rounded-xl shadow-sm border border-border ring-2 ring-primary">
               <div className="text-primary font-bold text-3xl mb-2">Q4 2025</div>
               <div className="font-semibold mb-1">Platform Launch</div>
-              <div className="text-sm text-muted-foreground">Token launch & staking live</div>
+              <div className="text-sm text-muted-foreground">Official $PC token launch</div>
             </div>
             <div className="p-6 bg-card rounded-xl shadow-sm border border-border">
               <div className="text-primary font-bold text-3xl mb-2">Q1 2026</div>
