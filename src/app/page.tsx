@@ -38,20 +38,20 @@ export default function Home() {
             to deliver unmatched value to our community.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="p-6 bg-card rounded-xl shadow-sm border border-border">
-              <div className="text-primary font-bold text-3xl mb-2">Q2 2025</div>
-              <div className="font-semibold mb-1">Token Launch</div>
-              <div className="text-sm text-muted-foreground">Official $PC token release</div>
-            </div>
-            <div className="p-6 bg-card rounded-xl shadow-sm border border-border">
-              <div className="text-primary font-bold text-3xl mb-2">Q3 2025</div>
-              <div className="font-semibold mb-1">Platform Beta</div>
-              <div className="text-sm text-muted-foreground">Launchpad testing begins</div>
-            </div>
-            <div className="p-6 bg-card rounded-xl shadow-sm border border-border">
+            <div className="p-6 bg-card rounded-xl shadow-sm border border-border ring-2 ring-primary">
               <div className="text-primary font-bold text-3xl mb-2">Q4 2025</div>
-              <div className="font-semibold mb-1">Full Launch</div>
-              <div className="text-sm text-muted-foreground">First IGOs go live</div>
+              <div className="font-semibold mb-1">Platform Launch</div>
+              <div className="text-sm text-muted-foreground">Token launch & staking live</div>
+            </div>
+            <div className="p-6 bg-card rounded-xl shadow-sm border border-border">
+              <div className="text-primary font-bold text-3xl mb-2">Q1 2026</div>
+              <div className="font-semibold mb-1">IGO Launchpad</div>
+              <div className="text-sm text-muted-foreground">First gaming projects go live</div>
+            </div>
+            <div className="p-6 bg-card rounded-xl shadow-sm border border-border">
+              <div className="text-primary font-bold text-3xl mb-2">Q2 2026</div>
+              <div className="font-semibold mb-1">Full Ecosystem</div>
+              <div className="text-sm text-muted-foreground">NFT marketplace & tournaments</div>
             </div>
           </div>
         </div>
