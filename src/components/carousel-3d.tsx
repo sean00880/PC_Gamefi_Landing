@@ -134,7 +134,7 @@ export default function Carousel3D() {
             <div className="container relative mx-auto px-6">
                 {/* Header */}
                 <div className="text-center mb-16">
-                    <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                    <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-purple-400 to-cyan-400 bg-clip-text text-transparent px-2">
                         Explore the Gaming Universe
                     </h2>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
