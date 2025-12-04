@@ -196,16 +196,16 @@ export default function Carousel3D() {
                                 />
 
                                 {/* Content */}
-                                <div className="relative h-full flex flex-col justify-end p-12 z-10">
+                                <div className="relative h-full flex flex-col justify-end p-4 sm:p-8 md:p-12 z-10">
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ delay: 0.3, duration: 0.5 }}
                                     >
-                                        <h3 className="text-4xl font-bold text-foreground mb-4 drop-shadow-lg">
+                                        <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-4 drop-shadow-lg">
                                             {visible.current.title}
                                         </h3>
-                                        <p className="text-lg text-muted-foreground leading-relaxed drop-shadow-md">
+                                        <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed drop-shadow-md">
                                             {visible.current.description}
                                         </p>
                                     </motion.div>
