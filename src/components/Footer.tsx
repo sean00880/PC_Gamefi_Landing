@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { SOCIAL_LINKS } from '@/lib/constants';
 
 export const Footer: React.FC = () => {
@@ -9,8 +10,22 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-border pb-12">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg rounded">PC</div>
-              <span className="font-bold text-2xl display-font text-foreground">GAMEFI</span>
+              {/* Light mode logo */}
+              <Image
+                src="/images/Light_Long.png"
+                alt="PC GameFi"
+                width={150}
+                height={40}
+                className="h-8 w-auto dark:hidden"
+              />
+              {/* Dark mode logo */}
+              <Image
+                src="/images/Dark_Long.png"
+                alt="PC GameFi"
+                width={150}
+                height={40}
+                className="h-8 w-auto hidden dark:block"
+              />
             </Link>
             <p className="text-muted-foreground max-w-sm mb-6">
               The leading Web3 platform for IGOs, NFT sales, and crypto gaming innovation. Invest with confidence.

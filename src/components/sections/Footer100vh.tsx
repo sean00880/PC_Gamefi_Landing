@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { Gamepad2, ExternalLink, Mail, MapPin, Phone } from 'lucide-react'
+import Image from 'next/image'
+import { ExternalLink, Mail, MapPin, Phone } from 'lucide-react'
 import { SOCIAL_LINKS, NAV_LINKS } from '@/lib/constants'
 
 const footerLinks = {
@@ -50,10 +51,22 @@ export function Footer100vh() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-                <Gamepad2 className="h-6 w-6" />
-              </div>
-              <span className="text-xl font-bold text-foreground">PC GameFi</span>
+              {/* Light mode logo */}
+              <Image
+                src="/images/Light_Long.png"
+                alt="PC GameFi"
+                width={160}
+                height={45}
+                className="h-10 w-auto dark:hidden"
+              />
+              {/* Dark mode logo */}
+              <Image
+                src="/images/Dark_Long.png"
+                alt="PC GameFi"
+                width={160}
+                height={45}
+                className="h-10 w-auto hidden dark:block"
+              />
             </Link>
             <p className="mt-4 max-w-xs text-sm text-muted-foreground">
               The premier launchpad for Web3 gaming. Access exclusive IGOs, stake for allocations,
