@@ -1,10 +1,11 @@
 'use client'
 
-import { Logo } from '@/components/logo'
 import { Button } from '@/components/ui/button'
 import { Menu, X, Twitter, Send } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
+import { useTheme } from 'next-themes'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { SOCIAL_LINKS } from '@/lib/constants'
 
@@ -17,6 +18,8 @@ const menuItems = [
 
 export const Navbar = () => {
     const [menuState, setMenuState] = useState(false)
+    const { resolvedTheme } = useTheme()
+
     return (
         <header>
             <nav
@@ -29,9 +32,24 @@ export const Navbar = () => {
                                 href="/"
                                 aria-label="home"
                                 className="flex items-center space-x-2">
-                                <h1 className="text-2xl md:text-3xl font-bold display-font tracking-tight text-foreground">
-                                    PC <span className="text-primary">GAMEFI</span>
-                                </h1>
+                                {/* Light mode logo - shown when theme is light */}
+                                <Image
+                                    src="/images/Light_Long.png"
+                                    alt="PC GameFi"
+                                    width={180}
+                                    height={50}
+                                    className="h-10 w-auto dark:hidden"
+                                    priority
+                                />
+                                {/* Dark mode logo - shown when theme is dark */}
+                                <Image
+                                    src="/images/Dark_Long.png"
+                                    alt="PC GameFi"
+                                    width={180}
+                                    height={50}
+                                    className="h-10 w-auto hidden dark:block"
+                                    priority
+                                />
                             </Link>
 
                             <button

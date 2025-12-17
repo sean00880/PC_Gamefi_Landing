@@ -121,16 +121,6 @@ export function Hero100vh() {
 
           {/* CTA Buttons */}
           <div className="mb-16 flex flex-wrap items-center justify-center gap-4">
-            <Button asChild size="lg" className="h-14 min-w-[200px] text-lg bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 border-0">
-              <a
-                href="https://www.pinksale.finance/launchpad/ethereum/0xbdC4a3e7dcdCBb8bfFA785235f4b1F833fF635C4"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Rocket className="mr-2 h-5 w-5" />
-                Join Presale on PinkSale
-              </a>
-            </Button>
             <Button asChild size="lg" className="h-14 min-w-[200px] text-lg">
               <Link href="/projects">
                 <Gamepad2 className="mr-2 h-5 w-5" />
